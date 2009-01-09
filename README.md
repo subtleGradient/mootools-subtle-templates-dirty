@@ -1,12 +1,23 @@
-My Plugin Name
-==============
+SubtleTemplateDirty
+===================
 
 Description
 -----------
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-Getting Started
----------------
+1. Pass in an element to your new SubtleTemplateDirty.
 
-1. First, rename the SubtleTemplateDirty.js files to whatever the name of your plugin is
-2. Replace every occurrence of "SubtleTemplateDirty" with your plugins actual name
+2. Then use the set method to set the value or text of its child elements who match a selector based on the key you pass in.
+
+	* EG: `mySubtleTemplateDirty.set('coffee', 'coffee rocks!');`
+
+3. It'll look for the first element that matches the selector `#coffee, [name=coffee], .coffee`
+
+4. Then it'll set the `value` or `text` of that element to `'coffee rocks!'`
+
+5. Then is creates a function for that key that sets that same element in the same way
+	
+	* So if you keep setting the same key over and over, it won't have to do all the work of matching up the element to the key again
+
+6. You can create your own custom setters!
+
+	`mySubtleTemplateDirty.Properties.flarm = {set:function(value){ /* custom code goes here */ }}`
