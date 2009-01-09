@@ -8,7 +8,7 @@ License:
 	MIT-style license.
 
 Copyright:
-	Copyright (c) 2006-2007 [Valerio Proietti](http://mad4milk.net/).
+	Copyright (c) 2009 [Valerio Proietti](http://mad4milk.net/).
 
 Code & Documentation:
 	[The MooTools production team](http://mootools.net/developers/).

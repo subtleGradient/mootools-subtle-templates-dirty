@@ -1,41 +1,33 @@
 /*
 Script: SubtleTemplateDirty.js
-	MooTools - My Object Oriented JavaScript Tools.
 
 License:
 	MIT-style license.
 
 Copyright:
-	Copyright (c) 2006-2007 [copyright holders](http://).
+	Copyright (c) 2009 [Thomas Aylott](http://subtleGradient.com).
 
 */
 
 //
 var SubtleTemplateDirty = new Class({
 	
-	Implements: [Options, Events],
-	
-	options:{
-		mapping:{
-			
-		}
-	},
+	Implements: Events,
 	
 	Properties:{
 		html:{set: function(value){ this.set('html',value); }}
 	},
 	
-	initialize: function(element, mapping){
-		this.setOptions({ mapping:mapping });
+	initialize: function(element){
 		this.element = $(element);
 	},
 	
 	getSelector: function(key){
 		return [
-			'#'+key,
-			'[name='+key+']',
-			'.'+key
-		].join(',');
+			'#{key}',
+			'[name="{key}"]',
+			'.{key}'
+		].join(',').substitute({ key:key });
 	},
 	
 	set: function(key, value){
