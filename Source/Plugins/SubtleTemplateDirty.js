@@ -40,7 +40,7 @@ var SubtleTemplateDirty = new Class({
 	
 	set: function(key, value){
 		if (value==undefined && $type(key)=='object') return this.setMultiple(key);
-		if (this.Properties[key] && $type(this.Properties[key].set)=='function') return this.Properties[key].set(value);
+		if (this.Properties[key] && $type(this.Properties[key].set)=='function') return this.Properties[key].set.call(this.element, value);
 		
 		var el = this.element;
 		key.split('.').each(function(k){
@@ -56,7 +56,7 @@ var SubtleTemplateDirty = new Class({
 		if (/input|select|textarea/.test(el.get('tag'))) setWhat='value';
 		
 		this.Properties[key] = { set: function(value){ el.set(setWhat, value); }};
-		this.Properties[key].set(value);
+		this.Properties[key].set.call(this.element, value)
 		return this;
 	},
 	

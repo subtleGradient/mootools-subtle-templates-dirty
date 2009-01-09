@@ -7,10 +7,23 @@
 </head>
 <body>
 
-<p id="editor">
+<div id="editor" style="background-color:#eee">
 	<input type="text" name="fred" value="fred" />
 	<span class="albert">albert</span>
-</p>
+	<div class="coffee">
+		coffee
+		<div class="cream">
+			cream
+			<div class="flavor">
+				flavor
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
+
+<em><strong>View source to see why this is cool.</strong></em>
 
 <script type="text/javascript" src="mootools.js"> </script>
 <script src="../Source/Plugins/SubtleTemplateDirty.js" type="text/javascript" charset="utf-8"></script>
@@ -21,9 +34,14 @@ var myThing;
 window.addEvent('domready',function(){
 	
 	myThing = new SubtleTemplateDirty($('editor'));
+	
+	myThing.Properties.fanciness = { set:function(value){this.morph(value);} };
+	
 	myThing.set({
 		fred:'Just set fred!',
-		albert:'Just set albert!'
+		albert:'Just set albert!',
+		'coffee.cream.flavor':'Just set coffee.cream.flavor!',
+		fanciness:{backgroundColor:'#00f', color:'#fff'}
 	});
 	
 });
